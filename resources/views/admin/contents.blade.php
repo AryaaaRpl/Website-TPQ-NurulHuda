@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 @section('title', $label . ' - Admin TPQ')
 @section('content')
-<div class="flex items-center justify-between mb-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
     <div>
-        <h1 class="text-2xl font-bold text-gray-900">{{ $label }}</h1>
-        <p class="text-gray-500 mt-1">Konten ini tampil pada website publik jika berstatus dipublikasikan.</p>
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">{{ $label }}</h1>
+        <p class="text-gray-500 text-sm mt-1">Konten ini tampil pada website publik jika berstatus dipublikasikan.</p>
     </div>
-    <a href="{{ route('admin.contents.create', $type) }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition shadow-sm">
+    <a href="{{ route('admin.contents.create', $type) }}" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition shadow-sm sm:w-auto">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
         Tambah Data
     </a>

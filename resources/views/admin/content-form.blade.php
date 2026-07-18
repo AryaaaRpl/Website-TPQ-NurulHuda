@@ -2,11 +2,11 @@
 @section('title', ($item->exists ? 'Edit' : 'Tambah') . ' ' . $label . ' - Admin TPQ')
 @section('content')
 <div class="mb-6">
-    <h1 class="text-2xl font-bold text-gray-900">{{ $item->exists ? 'Edit' : 'Tambah' }} {{ $label }}</h1>
-    <p class="text-gray-500 mt-1">Lengkapi data konten untuk ditampilkan di website publik.</p>
+    <h1 class="text-xl sm:text-2xl font-bold text-gray-900">{{ $item->exists ? 'Edit' : 'Tambah' }} {{ $label }}</h1>
+    <p class="text-gray-500 mt-1 text-sm">Lengkapi data konten untuk ditampilkan di website publik.</p>
 </div>
 
-<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 max-w-2xl">
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6 max-w-2xl">
     <form method="post" action="{{ $item->exists ? route('admin.contents.update', [$type, $item]) : route('admin.contents.store', $type) }}" enctype="multipart/form-data">
         @csrf
         @if ($item->exists)
@@ -39,8 +39,8 @@
 
         <div class="mb-5">
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Gambar</label>
-            <div class="flex items-start gap-4">
-                <div class="flex-1">
+            <div class="flex flex-col sm:flex-row items-start gap-4">
+                <div class="flex-1 w-full sm:w-auto">
                     <input id="image" type="file" name="image" accept="image/jpeg,image/png,image/jpg,image/webp"
                         class="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 transition @error('image') border-red-300 @enderror"
                         onchange="previewImage(event)">
@@ -50,8 +50,8 @@
                     @enderror
                 </div>
                 @if ($item->exists && $item->image_url)
-                    <div class="relative group flex-shrink-0">
-                        <img src="{{ str_starts_with($item->image_url, 'http') ? $item->image_url : asset($item->image_url) }}" alt="Preview" class="w-24 h-24 object-cover rounded-lg border border-gray-200">
+                    <div class="relative group flex-shrink-0 self-start sm:self-auto">
+                        <img src="{{ str_starts_with($item->image_url, 'http') ? $item->image_url : asset($item->image_url) }}" alt="Preview" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg border border-gray-200">
                         <label class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center cursor-pointer hover:bg-red-600 transition shadow-sm">
                             <input type="checkbox" name="remove_image" value="1" class="hidden" onchange="this.closest('form').submit()">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -63,7 +63,7 @@
             <div id="image-preview" class="hidden mt-3"></div>
         </div>
 
-        <div class="flex gap-4 mb-6">
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
             <div class="flex-1">
                 <label for="status" class="block text-sm font-medium text-gray-700 mb-1.5">Status</label>
                 <select id="status" name="status"
@@ -72,7 +72,7 @@
                     <option value="published" {{ old('status', $item->status) === 'published' ? 'selected' : '' }}>Dipublikasikan</option>
                 </select>
             </div>
-            <div class="w-32">
+            <div class="w-full sm:w-32">
                 <label for="sort_order" class="block text-sm font-medium text-gray-700 mb-1.5">Urutan</label>
                 <input id="sort_order" type="number" min="0" name="sort_order" value="{{ old('sort_order', $item->sort_order ?? 0) }}"
                     class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">

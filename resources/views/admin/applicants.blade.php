@@ -1,23 +1,23 @@
 @extends('layouts.admin')
 @section('title', 'PPDB Online - Admin TPQ')
 @section('content')
-<div class="flex items-center justify-between mb-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
     <div>
-        <h1 class="text-2xl font-bold text-gray-900">PPDB Online</h1>
-        <p class="text-gray-500 mt-1">Kelola dan tindak lanjuti pendaftaran calon santri.</p>
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">PPDB Online</h1>
+        <p class="text-gray-500 text-sm mt-1">Kelola dan tindak lanjuti pendaftaran calon santri.</p>
     </div>
-    <a href="{{ route('admin.applicants.export') }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition shadow-sm">
+    <a href="{{ route('admin.applicants.export') }}" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition shadow-sm sm:w-auto">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         Export Excel (CSV)
     </a>
 </div>
 
 <form method="get" class="mb-6">
-    <div class="flex gap-3">
+    <div class="flex flex-col sm:flex-row gap-3">
         <input type="text" name="search" value="{{ request('search') }}"
-            class="flex-1 max-w-xs px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition"
+            class="w-full sm:flex-1 sm:max-w-xs px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition"
             placeholder="Cari nama atau nomor daftar">
-        <button type="submit" class="px-4 py-2.5 bg-gray-600 text-white text-sm font-medium rounded-lg hover:bg-gray-700 transition">Cari</button>
+        <button type="submit" class="w-full sm:w-auto px-4 py-2.5 bg-gray-600 text-white text-sm font-medium rounded-lg hover:bg-gray-700 transition">Cari</button>
     </div>
 </form>
 

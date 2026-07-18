@@ -10,13 +10,22 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased bg-gray-50">
-    <div class="min-h-screen flex">
-        <aside class="w-64 bg-emerald-900 text-white flex flex-col shrink-0">
-            <div class="p-6 border-b border-emerald-800">
-                <h1 class="text-lg font-bold tracking-tight">TPQ Nurul Huda</h1>
-                <p class="text-emerald-300 text-xs mt-1">Panel Administrator</p>
+    <div x-data="{ sidebarOpen: false }" class="min-h-screen flex flex-col lg:flex-row">
+        {{-- OVERLAY (mobile) --}}
+        <div x-show="sidebarOpen" x-cloak @click="sidebarOpen = false" class="fixed inset-0 z-30 bg-black/40 lg:hidden transition-opacity"></div>
+
+        {{-- SIDEBAR --}}
+        <aside x-bind:class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed lg:static inset-y-0 left-0 z-40 w-64 bg-emerald-900 text-white flex flex-col transition-transform duration-300 lg:translate-x-0 shrink-0">
+            <div class="flex items-center justify-between p-5 border-b border-emerald-800">
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight">TPQ Nurul Huda</h1>
+                    <p class="text-emerald-300 text-xs mt-1">Panel Administrator</p>
+                </div>
+                <button @click="sidebarOpen = false" class="lg:hidden p-1.5 rounded-lg text-emerald-300 hover:bg-emerald-800 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
             </div>
-            <nav class="flex-1 p-4 space-y-1">
+            <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.dashboard') ? 'bg-emerald-700 text-white' : 'text-emerald-100 hover:bg-emerald-800 hover:text-white' }}">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                     Dashboard
@@ -55,12 +64,28 @@
                 </form>
             </div>
         </aside>
-        <main class="flex-1 p-8">
-            @if (session('success'))
-                <div class="mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-lg text-sm">{{ session('success') }}</div>
-            @endif
-            @yield('content')
+
+        {{-- MAIN CONTENT --}}
+        <main class="flex-1 min-w-0">
+            {{-- TOP BAR (mobile) --}}
+            <div class="sticky top-0 z-20 lg:hidden flex items-center gap-3 bg-white border-b border-gray-200 px-4 py-3">
+                <button @click="sidebarOpen = true" class="p-1.5 rounded-lg text-gray-600 hover:bg-gray-100 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <div class="flex items-center gap-2.5">
+                    <div class="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-white text-xs font-bold">{{ substr(Auth::user()->name, 0, 1) }}</div>
+                    <p class="text-sm font-medium text-gray-700 truncate">{{ Auth::user()->name }}</p>
+                </div>
+            </div>
+
+            <div class="p-4 sm:p-6 lg:p-8">
+                @if (session('success'))
+                    <div class="mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-lg text-sm">{{ session('success') }}</div>
+                @endif
+                @yield('content')
+            </div>
         </main>
     </div>
+    <style>[x-cloak]{display:none!important}</style>
 </body>
 </html>
