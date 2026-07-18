@@ -59,7 +59,7 @@
           </a>
         </div>
       @else
-        <form method="POST" action="{{ route('ppdb.register') }}" class="bg-white rounded-2xl shadow-lg shadow-slate-100 border border-slate-100 p-6 sm:p-8 lg:p-10">
+        <form method="POST" action="{{ route('ppdb.register') }}" enctype="multipart/form-data" class="bg-white rounded-2xl shadow-lg shadow-slate-100 border border-slate-100 p-6 sm:p-8 lg:p-10">
           @csrf
 
           @if($errors->any())
