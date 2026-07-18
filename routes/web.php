@@ -33,6 +33,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin.session'])->g
     Route::get('/ppdb', [AdminWebController::class, 'applicants'])->name('applicants');
     Route::patch('/ppdb/{applicant}', [AdminWebController::class, 'applicantStatus'])->name('applicants.status');
     Route::get('/ppdb-export', [AdminWebController::class, 'export'])->name('applicants.export');
+    Route::get('/ppdb/{applicant}/download', [AdminWebController::class, 'downloadFiles'])->name('applicants.download');
 });
 
 require __DIR__.'/auth.php';

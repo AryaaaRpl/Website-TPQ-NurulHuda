@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Applicant extends Model
 {
-    protected $fillable = ['registration_number', 'name', 'parent_name', 'phone', 'age', 'program', 'status'];
+    protected $fillable = ['registration_number', 'name', 'parent_name', 'phone', 'age', 'program', 'birth_certificate', 'family_card', 'photo', 'status'];
 }

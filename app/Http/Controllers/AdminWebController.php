@@ -19,6 +19,26 @@ class AdminWebController {
  public function applicants(Request $r){$q=Applicant::query();if($r->search)$q->where(fn($x)=>$x->where('name','like','%'.$r->search.'%')->orWhere('registration_number','like','%'.$r->search.'%'));return view('admin.applicants',['applicants'=>$q->latest()->paginate(20)->withQueryString()]);}
  public function applicantStatus(Request $r,Applicant $applicant){$r->validate(['status'=>['required',Rule::in(['new','verified','accepted','rejected'])]]);$applicant->update(['status'=>$r->status]);return back()->with('success','Status pendaftar diperbarui.');}
  public function export(){return app(ApplicantController::class)->export();}
+ public function downloadFiles(Applicant $applicant){
+  $files=[];
+  $base=storage_path('app/public/');
+  foreach(['birth_certificate'=>'Akta Kelahiran','family_card'=>'Kartu Keluarga','photo'=>'Pas Foto'] as $field=>$label){
+   if(!$applicant->$field) continue;
+   $relPath=str_replace('/storage/','',$applicant->$field);
+   $fullPath=$base.$relPath;
+   if(file_exists($fullPath)){
+    $ext=pathinfo($applicant->$field,PATHINFO_EXTENSION);
+    $files[]=['path'=>$fullPath,'name'=>$label.'.'.$ext];
+   }
+  }
+  if(empty($files)) abort(404,'Tidak ada file untuk diunduh.');
+  $zip=new \ZipArchive();
+  $zipName=tempnam(sys_get_temp_dir(),'ppdb_').'.zip';
+  if($zip->open($zipName,\ZipArchive::CREATE)!==true) abort(500,'Gagal membuat file ZIP.');
+  foreach($files as $f){$zip->addFile($f['path'],$f['name']);}
+  $zip->close();
+  return response()->download($zipName,$applicant->registration_number.'_Dokumen.zip')->deleteFileAfterSend(true);
+ }
  private function type(string $type):void{abort_unless(array_key_exists($type,self::TYPES),404);}
  private function owns(string $type,Content $c):void{$this->type($type);abort_unless($c->type===$type,404);}
  private function data(Request $r,string $type):array{

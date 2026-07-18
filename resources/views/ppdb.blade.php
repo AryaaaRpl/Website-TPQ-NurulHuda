@@ -95,7 +95,28 @@
             </div>
           </div>
 
-          <div class="mt-5">
+          <div class="mt-6 border-t border-slate-100 pt-6">
+            <p class="text-sm font-semibold text-slate-700 mb-3">Dokumen Persyaratan</p>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div>
+                <label for="birth_certificate" class="block text-xs font-medium text-slate-600 mb-1.5">Fotokopi Akta Kelahiran</label>
+                <input type="file" id="birth_certificate" name="birth_certificate" accept=".jpg,.jpeg,.png,.pdf"
+                  class="w-full text-sm text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 transition-all duration-200 cursor-pointer">
+              </div>
+              <div>
+                <label for="family_card" class="block text-xs font-medium text-slate-600 mb-1.5">Fotokopi Kartu Keluarga</label>
+                <input type="file" id="family_card" name="family_card" accept=".jpg,.jpeg,.png,.pdf"
+                  class="w-full text-sm text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 transition-all duration-200 cursor-pointer">
+              </div>
+              <div>
+                <label for="photo" class="block text-xs font-medium text-slate-600 mb-1.5">Pas foto 3×4</label>
+                <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png"
+                  class="w-full text-sm text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 transition-all duration-200 cursor-pointer">
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
             <label class="block text-sm font-semibold text-slate-700 mb-2.5">Program <span class="text-red-500">*</span></label>
             <div class="flex flex-wrap gap-3">
               <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-emerald-50 border border-slate-200 has-[:checked]:border-emerald-400 has-[:checked]:bg-emerald-50 rounded-xl px-5 py-3 cursor-pointer transition-all duration-200">
