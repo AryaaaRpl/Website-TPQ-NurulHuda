@@ -21,6 +21,19 @@ class HomeController {
       'others' => $others,
     ]);
   }
+  public function galleryDetail(Content $content) {
+    abort_unless($content->type === 'gallery' && $content->status === 'published', 404);
+    $others = Content::where('type', 'gallery')
+      ->where('status', 'published')
+      ->where('id', '!=', $content->id)
+      ->orderBy('sort_order')
+      ->take(6)
+      ->get();
+    return view('gallery-detail', [
+      'item' => $content,
+      'others' => $others,
+    ]);
+  }
   public function register(Request $request) {
   if ($request->isMethod('post')) {
    $data=$request->validate([

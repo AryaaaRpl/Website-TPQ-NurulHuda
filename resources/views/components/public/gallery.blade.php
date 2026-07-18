@@ -20,17 +20,20 @@
           $ratio = $isLarge ? '2.1/1' : '1/1';
           $span = $isLarge ? 'col-span-2' : '';
         @endphp
-        <div class="group relative overflow-hidden rounded-2xl bg-emerald-100 {{ $span }}" style="aspect-ratio:{{ $ratio }}">
+        <a href="{{ route('gallery.detail', $item) }}" class="group relative overflow-hidden rounded-2xl bg-emerald-100 {{ $span }}" style="aspect-ratio:{{ $ratio }}">
           <img src="{{ $item->image_url ? (str_starts_with($item->image_url, 'http') ? $item->image_url : asset($item->image_url)) : 'https://images.unsplash.com/photo-1629273229664-11fabc0becc0?w=600&h=400&fit=crop&auto=format' }}"
                alt="{{ $item->title }}"
                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <span class="text-white text-sm font-semibold">{{ $item->title }}</span>
           </div>
-          <div class="absolute top-3 left-3">
+          <div class="absolute top-3 left-3 flex items-center gap-2">
             <span class="bg-white/90 backdrop-blur-sm text-emerald-700 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">{{ $item->title }}</span>
+            <span class="bg-emerald-600/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              Detail
+            </span>
           </div>
-        </div>
+        </a>
       @empty
         <div class="col-span-3 text-center py-12 text-slate-400">Belum ada galeri.</div>
       @endforelse

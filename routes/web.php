@@ -12,6 +12,7 @@ Route::get('/ekstrakurikuler', [HomeController::class, 'ekskul'])->name('ekskul'
 Route::get('/ppdb', [HomeController::class, 'register'])->name('ppdb');
 Route::post('/ppdb', [HomeController::class, 'register'])->name('ppdb.register');
 Route::get('/testimonial/{testimonial}', [HomeController::class, 'testimonialDetail'])->name('testimonial.detail');
+Route::get('/galeri/{content}', [HomeController::class, 'galleryDetail'])->name('gallery.detail');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
