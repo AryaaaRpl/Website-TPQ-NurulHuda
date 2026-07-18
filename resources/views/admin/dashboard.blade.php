@@ -6,7 +6,7 @@
     <p class="text-gray-500 text-sm mt-1">Selamat datang kembali, {{ $admin->name }}. Berikut ringkasan pengelolaan website TPQ.</p>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 mb-8">
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 sm:p-6">
         <div class="flex items-center justify-between">
             <div>
@@ -40,6 +40,17 @@
             </div>
         </div>
     </div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm font-medium text-gray-500">Total Testimoni</p>
+                <p class="text-3xl font-bold text-emerald-600 mt-1">{{ $testimonialCount }}</p>
+            </div>
+            <div class="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 sm:p-6">
@@ -57,6 +68,10 @@
         <a href="{{ route('admin.contents', 'facility') }}" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition sm:w-auto">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
             Kelola Fasilitas
+        </a>
+        <a href="{{ route('admin.testimonials') }}" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition sm:w-auto">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            Kelola Testimoni
         </a>
         <a href="{{ route('admin.applicants') }}" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-amber-600 text-white text-sm font-medium rounded-lg hover:bg-amber-700 transition sm:w-auto">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>

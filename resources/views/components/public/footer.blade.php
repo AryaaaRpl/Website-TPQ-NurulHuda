@@ -10,7 +10,7 @@
           </div>
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-5 max-w-xs">
-          Mendidik generasi Qur'ani yang berakhlak mulia sejak 2006. Bersama kami, anak Anda belajar Al-Qur'an dengan penuh rasa cinta.
+          Mendidik generasi Qur'ani yang berakhlak mulia sejak 1970. Bersama kami, anak Anda belajar Al-Qur'an dengan penuh rasa cinta.
         </p>
         <div class="flex gap-3">
           <button class="w-9 h-9 bg-slate-800 hover:bg-emerald-600 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200">
@@ -32,7 +32,7 @@
       <div>
         <h4 class="text-white font-semibold text-sm mb-4">Program</h4>
         <ul class="space-y-2.5">
-          <li><a href="{{ route('home') }}#program" class="text-slate-400 hover:text-emerald-400 text-sm transition-colors">Kelas Iqro</a></li>
+          <li><a href="{{ route('home') }}#program" class="text-slate-400 hover:text-emerald-400 text-sm transition-colors">Kelas Jilid</a></li>
           <li><a href="{{ route('home') }}#program" class="text-slate-400 hover:text-emerald-400 text-sm transition-colors">Kelas Tahfidz</a></li>
           <li><a href="{{ route('home') }}#program" class="text-slate-400 hover:text-emerald-400 text-sm transition-colors">Kajian Anak</a></li>
           <li><a href="{{ route('ekskul') }}" class="text-slate-400 hover:text-emerald-400 text-sm transition-colors">Ekstrakurikuler</a></li>
@@ -49,13 +49,20 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            <span>Jl. Masjid Al-Hikmah No. 12, Kelurahan Bahagia, Kota Sejahtera</span>
+            <span>Jln. Pandan, Dusun Pandan Rt 001 / Rw 004 Pandan, Kembiritan, Ganteng Banyuwangi.</span>
           </li>
-          <li class="flex items-center gap-2.5 text-slate-400 text-sm">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+          <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 mt-0.5">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.7a16 16 0 0 0 6.29 6.29l.91-.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
-            <a href="tel:+6281234567890" class="hover:text-emerald-400 transition-colors">+62 812-3456-7890</a>
+            <div class="space-y-1.5">
+              <a href="tel:+6282230254695" class="block hover:text-emerald-400 transition-colors">
+                <span class="font-medium text-slate-300">Ustadz Fauzi:</span> +62 822-3025-4695
+              </a>
+              <a href="tel:+6282148744520" class="block hover:text-emerald-400 transition-colors">
+                <span class="font-medium text-slate-300">Ustadzah Anis:</span> +62 821-4874-4520
+              </a>
+            </div>
           </li>
           <li class="flex items-center gap-2.5 text-slate-400 text-sm">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0">
@@ -68,8 +75,7 @@
 
         <div class="mt-5 p-3.5 bg-slate-800 rounded-xl">
           <p class="text-xs font-semibold text-emerald-400 mb-2">Jam Operasional</p>
-          <p class="text-slate-400 text-xs">Senin – Jumat: 14.00 – 17.30</p>
-          <p class="text-slate-400 text-xs">Sabtu: 08.00 – 11.00</p>
+          <p class="text-slate-400 text-xs">Senin – Sabtu: 14.00 – 17.00</p>
         </div>
       </div>
     </div>

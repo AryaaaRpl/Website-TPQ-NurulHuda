@@ -2,13 +2,26 @@
 namespace App\Http\Controllers;
 use App\Models\Applicant;
 use App\Models\Content;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 class HomeController {
- public function index() { $items=Content::where('status','published')->orderBy('sort_order')->get()->groupBy('type'); return view('home',['gallery'=>$items->get('gallery',collect()),'extras'=>$items->get('extracurricular',collect()),'facilities'=>$items->get('facility',collect())]); }
+  public function index() { $items=Content::where('status','published')->orderBy('sort_order')->get()->groupBy('type'); return view('home',['gallery'=>$items->get('gallery',collect()),'extras'=>$items->get('extracurricular',collect()),'facilities'=>$items->get('facility',collect()),'testimonials'=>Testimonial::where('status','published')->orderBy('sort_order')->get()]); }
  public function fasilitas() { $facilities=Content::where('type','facility')->where('status','published')->orderBy('sort_order')->get(); return view('fasilitas',['facilities'=>$facilities]); }
  public function ekskul() { $extras=Content::where('type','extracurricular')->where('status','published')->orderBy('sort_order')->get(); return view('ekskul',['extras'=>$extras]); }
- public function register(Request $request) {
+  public function testimonialDetail(Testimonial $testimonial) {
+    abort_unless($testimonial->status === 'published', 404);
+    $others = Testimonial::where('status', 'published')
+      ->where('id', '!=', $testimonial->id)
+      ->orderBy('sort_order')
+      ->take(3)
+      ->get();
+    return view('testimonial-detail', [
+      'testimonial' => $testimonial,
+      'others' => $others,
+    ]);
+  }
+  public function register(Request $request) {
   if ($request->isMethod('post')) {
    $data=$request->validate([
     'name'=>['required','string','max:160'],

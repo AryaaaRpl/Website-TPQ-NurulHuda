@@ -3,20 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Testimonial;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class TestimonialSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
-            'name' => 'Dea Cantikk (admin)',
-            'email' => 'dea@tpqnurulhuda.test',
-            'password' => 'admin123',
-            'is_admin' => true,
-        ]);
-
         Testimonial::create([
             'name' => 'Ibu Fatimah Zahra',
             'role' => 'Ibu dari Ahmad Rafi (Kelas Tahfidz)',

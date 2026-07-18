@@ -61,10 +61,6 @@
             <span class="text-xl font-extrabold text-emerald-600">18 Thn</span>
             <span class="text-sm text-slate-400 font-medium">Pengalaman</span>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="text-xl font-extrabold text-emerald-600">120+</span>
-            <span class="text-sm text-slate-400 font-medium">Hafidz/ah</span>
-          </div>
         </div>
       </div>
 

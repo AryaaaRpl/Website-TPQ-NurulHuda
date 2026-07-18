@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Applicant;
 use App\Models\Content;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -9,7 +10,7 @@ use Illuminate\Validation\Rule;
 class AdminWebController {
  private const TYPES=['gallery'=>'Galeri','extracurricular'=>'Ekstrakurikuler','facility'=>'Fasilitas'];
  public function logout(Request $r){Auth::guard('web')->logout();$r->session()->invalidate();$r->session()->regenerateToken();return redirect('/');}
- public function dashboard(){return view('admin.dashboard',['admin'=>Auth::user(),'contentCount'=>Content::count(),'applicantCount'=>Applicant::count(),'newCount'=>Applicant::where('status','new')->count()]);}
+  public function dashboard(){return view('admin.dashboard',['admin'=>Auth::user(),'contentCount'=>Content::count(),'applicantCount'=>Applicant::count(),'newCount'=>Applicant::where('status','new')->count(),'testimonialCount'=>Testimonial::count()]);}
  public function contents(string $type){$this->type($type);return view('admin.contents',['type'=>$type,'label'=>self::TYPES[$type],'items'=>Content::where('type',$type)->orderBy('sort_order')->latest()->get()]);}
  public function createContent(string $type){$this->type($type);return view('admin.content-form',['type'=>$type,'label'=>self::TYPES[$type],'item'=>new Content]);}
  public function storeContent(Request $r,string $type){$this->type($type);Content::create($this->data($r,$type));return redirect()->route('admin.contents',$type)->with('success','Data berhasil ditambahkan.');}
