@@ -51,17 +51,6 @@
             Lihat Program
           </button>
         </div>
-
-        <div class="flex flex-wrap gap-5">
-          <div class="flex items-center gap-2">
-            <span class="text-xl font-extrabold text-emerald-600">{{ number_format($setting->total_santri ?? 0) }}+</span>
-            <span class="text-sm text-slate-400 font-medium">Santri Aktif</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-xl font-extrabold text-emerald-600">18 Thn</span>
-            <span class="text-sm text-slate-400 font-medium">Pengalaman</span>
-          </div>
-        </div>
       </div>
 
       <div class="order-1 lg:order-2 flex justify-center lg:justify-end">

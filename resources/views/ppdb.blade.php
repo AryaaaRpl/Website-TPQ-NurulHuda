@@ -142,7 +142,7 @@
                 <input type="radio" name="program" value="madin" {{ old('program') === 'madin' ? 'checked' : '' }} class="accent-emerald-600 w-4 h-4">
                 <div>
                   <span class="text-sm font-semibold text-slate-700">Madin</span>
-                  <span class="text-xs text-slate-400 block">Pendidikan Anak Usia Dini</span>
+                  <span class="text-xs text-slate-400 block">Madrasah Diniyah</span>
                 </div>
               </label>
             </div>
