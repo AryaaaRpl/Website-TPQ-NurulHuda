@@ -17,7 +17,7 @@
       Bersama Kami Sekarang
     </h2>
     <p class="text-emerald-100 text-base lg:text-lg mb-8 max-w-xl mx-auto leading-relaxed">
-      Investasi terbaik untuk masa depan anak adalah pendidikan Al-Qur'an. Bergabunglah bersama 350+ keluarga yang telah mempercayakan pendidikan Al-Qur'an putra-putrinya kepada kami.
+      Investasi terbaik untuk masa depan anak adalah pendidikan Al-Qur'an. Bergabunglah bersama {{ number_format($setting->total_santri ?? 0) }}+ keluarga yang telah mempercayakan pendidikan Al-Qur'an putra-putrinya kepada kami.
     </p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center">
       <a href="{{ route('ppdb') }}" class="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-emerald-900 font-bold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-base">
