@@ -44,6 +44,18 @@
         <p class="text-slate-500 max-w-lg mx-auto">Isi data diri ananda dengan lengkap untuk mendaftar sebagai santri TPQ Nurul Huda.</p>
       </div>
 
+      @if($setting && $setting->syarat_pendaftaran)
+        <div class="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-6 sm:p-8 mb-8">
+          <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Syarat Pendaftaran
+          </h3>
+          <div class="text-sm text-slate-600 leading-relaxed prose prose-sm max-w-none">
+            {!! $setting->syarat_pendaftaran !!}
+          </div>
+        </div>
+      @endif
+
       @if(session('registration_success'))
         <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 sm:p-8 text-center mb-8">
           <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">

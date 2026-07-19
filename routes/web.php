@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminWebController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\TestimonialWebController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +46,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin.session'])->g
     Route::get('/testimonials/{testimonial}/edit', [TestimonialWebController::class, 'edit'])->name('testimonials.edit');
     Route::put('/testimonials/{testimonial}', [TestimonialWebController::class, 'update'])->name('testimonials.update');
     Route::delete('/testimonials/{testimonial}', [TestimonialWebController::class, 'destroy'])->name('testimonials.delete');
+
+    Route::get('/settings', [SiteSettingController::class, 'edit'])->name('settings.edit');
+    Route::put('/settings', [SiteSettingController::class, 'update'])->name('settings.update');
+
+    Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
 });
 
 require __DIR__.'/auth.php';

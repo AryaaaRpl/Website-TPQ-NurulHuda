@@ -31,7 +31,7 @@ class TestimonialWebController
             'sort_order' => ['nullable', 'integer', 'min:0'],
         ]);
         Testimonial::create($data);
-        return redirect()->route('admin.testimonials')->with('success', 'Testimoni berhasil ditambahkan.');
+        return redirect()->route('admin.testimonials')->with('success', 'Yeay!Testimoni berhasil ditambahkan.');
     }
 
     public function edit(Testimonial $testimonial)
@@ -51,12 +51,12 @@ class TestimonialWebController
             'sort_order' => ['nullable', 'integer', 'min:0'],
         ]);
         $testimonial->update($data);
-        return redirect()->route('admin.testimonials')->with('success', 'Testimoni berhasil diperbarui.');
+        return redirect()->route('admin.testimonials')->with('success', 'Yeay! Testimoni berhasil diperbarui.');
     }
 
     public function destroy(Testimonial $testimonial)
     {
         $testimonial->delete();
-        return back()->with('success', 'Testimoni berhasil dihapus.');
+        return back()->with('success', 'Yeay! Testimoni berhasil dihapus.');
     }
 }

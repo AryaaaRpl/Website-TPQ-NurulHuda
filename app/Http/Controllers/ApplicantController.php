@@ -19,7 +19,7 @@ class ApplicantController extends Controller
         ]);
         $data['registration_number'] = 'PPDB-'.now()->format('ymd').'-'.strtoupper(Str::random(4));
         $applicant = Applicant::create($data);
-        return response()->json(['message' => 'Pendaftaran berhasil dikirim.', 'data' => $applicant], 201);
+        return response()->json(['message' => 'Yeay! Pendaftaran berhasil dikirim.', 'data' => $applicant], 201);
     }
 
     public function index(Request $request)
