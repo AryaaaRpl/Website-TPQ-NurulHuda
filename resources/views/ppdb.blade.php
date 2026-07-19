@@ -139,10 +139,10 @@
                 </div>
               </label>
               <label class="flex items-center gap-2.5 bg-slate-50 hover:bg-emerald-50 border border-slate-200 has-[:checked]:border-emerald-400 has-[:checked]:bg-emerald-50 rounded-xl px-5 py-3 cursor-pointer transition-all duration-200">
-                <input type="radio" name="program" value="tahfidz" {{ old('program') === 'tahfidz' ? 'checked' : '' }} class="accent-emerald-600 w-4 h-4">
+                <input type="radio" name="program" value="madin" {{ old('program') === 'madin' ? 'checked' : '' }} class="accent-emerald-600 w-4 h-4">
                 <div>
-                  <span class="text-sm font-semibold text-slate-700">Tahfidz</span>
-                  <span class="text-xs text-slate-400 block">Hafalan Al-Qur'an</span>
+                  <span class="text-sm font-semibold text-slate-700">Madin</span>
+                  <span class="text-xs text-slate-400 block">Pendidikan Anak Usia Dini</span>
                 </div>
               </label>
             </div>
